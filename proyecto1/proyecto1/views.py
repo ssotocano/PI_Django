@@ -1,9 +1,16 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context
 
 def saludo(request): #Primera vista
+
+    doc_externo=open("D:/django_projects/PI_Django/proyecto1/proyecto1/templates/miplantilla.html")
+    plt=Template(doc_externo.read())
+    doc_externo.close()
+    contexto=Context()
+    documento=plt.render(contexto)
     
-    return HttpResponse("Hola Mundo, esta es nuestra primera página con Django.")
+    return HttpResponse(documento)
 
 def fecha_hoy(request):
     
