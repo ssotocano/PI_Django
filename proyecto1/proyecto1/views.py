@@ -13,11 +13,11 @@ def fecha_hoy(request):
 
     return HttpResponse(muestra_fecha)
 
-def calculaEdad(request, year):
+def calculaEdad(request, edad, year):
     
-    edadActual=25
+    #edadActual=25
     periodo=year-2019
-    edadFutura=edadActual+periodo
+    edadFutura=edad+periodo
     muestraEdad="<html><body><h2>En el año %s tendrás %s años</h2></body></html>" %(year, edadFutura)
 
     return HttpResponse(muestraEdad)
