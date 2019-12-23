@@ -4,10 +4,13 @@ from django.template import Template, Context
 
 def saludo(request): #Primera vista
 
+    nombre="Sergio"
+    apellido="Soto"
+
     doc_externo=open("D:/django_projects/PI_Django/proyecto1/proyecto1/templates/miplantilla.html")
     plt=Template(doc_externo.read())
     doc_externo.close()
-    contexto=Context()
+    contexto=Context({"nombre_persona":nombre, "apellido_persona":apellido})
     documento=plt.render(contexto)
     
     return HttpResponse(documento)
