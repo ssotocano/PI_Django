@@ -54,7 +54,7 @@ ROOT_URLCONF = 'proyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['F:/proyectos/training_Django_PI/proyecto1/proyecto1/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

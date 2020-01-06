@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader
+from django.shortcuts import render
+
 
 
 class Persona(object):
@@ -14,13 +16,14 @@ def saludo(request): #Primera vista
 
     p1 = Persona("Sergio Andrés", "Soto Cano")
 
-    doc_externo=open("D:/django_projects/PI_Django/proyecto1/proyecto1/templates/miplantilla.html")
-    plt=Template(doc_externo.read())
-    doc_externo.close()
-    contexto=Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido})
-    documento=plt.render(contexto)
+    #doc_externo=open("F:/proyectos/training_Django_PI/proyecto1/proyecto1/templates/miplantilla.html")
+    #plt=Template(doc_externo.read())
+    #doc_externo.close()
+    #doc_externo=loader.get_template('miplantilla.html')
+    #contexto=Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido})
+    #documento=doc_externo.render({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido})
     
-    return HttpResponse(documento)
+    return render(request,"miplantilla.html",{"nombre_persona":p1.nombre, "apellido_persona":p1.apellido})
 
 def fecha_hoy(request):
     
